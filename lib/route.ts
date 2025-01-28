@@ -4,41 +4,83 @@ import { routeSchema } from "./validations/route";
 // -----------------------------------------------------------------------------
 // To Get Route By ID - Function
 // -----------------------------------------------------------------------------
+// export const getRouteById = async (id: string) => {
+//     try {
+//         const route = await prisma.route.findUnique({
+//             where: { id: 'your-route-id' },
+//             include: {
+//               vehicle: true,
+//               origin: true,
+//               destination: true,
+//             }
+//           });
+//         return route;
+//     } catch {
+//         return null;
+//     }
+// }
+
+
+// In the getRouteById function
 export const getRouteById = async (id: string) => {
     try {
         const route = await prisma.route.findUnique({
-            where: { id },
+            where: { id: id },  // Use the actual route id here
             include: {
-                vehicle: true,
-                origin: true,
-                destination: true,
-            }
-        })
+              vehicle: true,
+              origin: true,
+              destination: true,
+            },
+        });
         return route;
-    } catch {
+    } catch (error) {
+        console.error("Error fetching route:", error);
         return null;
     }
 }
 
+
 // -----------------------------------------------------------------------------
 // To Get All Routes - Function
 // -----------------------------------------------------------------------------
-export const getAllRoutes = async () => {
+// export const getAllRoutes = async () => {
+//     try {
+//         const routes = await prisma.route.findMany({
+//             include: {
+//                 origin: true,
+//                 destination: true,
+//                 vehicle: true,
+//             }
+//         }
+//         );
+//         return routes;
+//     } catch {
+//         return [];
+//     }
+// }
+export async function getAllRoutes(page = 1, limit = 10) {
     try {
-        const routes = await prisma.route.findMany({
-            include: {
-                origin: true,
-                destination: true,
-                vehicle: true,
-            }
-        }
-        );
-        return routes;
-    } catch {
-        return [];
-    }
-}
+      
+      const routes = await prisma.route.findMany({
+        include: {
+        origin: true,
+        destination: true,
+         vehicle: true,
+        },
+        skip: (page - 1) * limit, 
+        take: limit, 
+       
+      });
+  
+  
+      const totalRoutes = await prisma.route.count(); 
 
+      return { routes, total: totalRoutes };
+    } catch (error) {
+      throw new Error("Failed to fetch managers");
+    }
+  }
+  
 // -----------------------------------------------------------------------------
 // To Add Route - Function
 // -----------------------------------------------------------------------------

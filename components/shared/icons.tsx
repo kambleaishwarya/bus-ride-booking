@@ -31,7 +31,7 @@ import {
   User,
   X,
   Bus,
-  MapPin,
+  Route
 } from "lucide-react";
 
 export type Icon = LucideIcon;
@@ -48,8 +48,8 @@ export const Icons = {
   copy: Copy,
   dashboard: LayoutPanelLeft,
   ellipsis: MoreVertical,
-  bus:Bus,
-  mapin: MapPin,
+  bus: Bus,
+  route: Route,
   gitHub: ({ ...props }: LucideProps) => (
     <svg
       aria-hidden="true"
