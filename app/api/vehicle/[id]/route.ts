@@ -7,11 +7,9 @@ import { updateVehicle, deleteVehicle } from "@/lib/vehicle";
 
 export async function PUT(req: Request) {
   try {
-    // Get the vehicleId from the URL parameters
     const url = new URL(req.url);
     const vehicleId = url.pathname.split('/').pop(); // Extract vehicleId from URL
 
-    // Parse request body
     const body = await req.json();
     console.log("Request Body:", body); 
 
@@ -47,11 +45,9 @@ export async function PUT(req: Request) {
 
 export async function DELETE(req: Request) {
   try {
-    // Get the vehicleId from the URL parameters
     const url = new URL(req.url);
-    const vehicleId = url.pathname.split('/').pop(); // Extract vehicleId from URL
+    const vehicleId = url.pathname.split('/').pop(); 
 
-    // Validate required fields
     if (!vehicleId) {
       return new Response(
         JSON.stringify({ error: "Vehicle ID is required" }),
@@ -59,10 +55,8 @@ export async function DELETE(req: Request) {
       );
     }
 
-    // Call the deleteVehicle function (backend service)
     const deletionResult = await deleteVehicle(vehicleId);
 
-    // Return success response
     return new Response(JSON.stringify(deletionResult), { status: 200 });
   } catch (error: any) {
     console.error("Error deleting vehicle:", error.message);

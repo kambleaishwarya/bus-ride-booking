@@ -29,7 +29,6 @@ export async function GET(req: Request) {
 
 
 // POST method to add a new vehicle
-// -----------------------------------------------------------------------------export async function POST(req: Request) {
   export async function POST(req: Request) {
     const { name, number, seats, type } = await req.json();
   

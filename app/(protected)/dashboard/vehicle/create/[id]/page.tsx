@@ -1,33 +1,29 @@
 import { redirect } from "next/navigation";
 import { getCurrentUser } from "@/lib/session";
 import { constructMetadata } from "@/lib/utils";
-import EditVehicleForm from "@/components/vehicle/EditForm"; // A component for editing vehicles
-import { getVehicleById } from "@/lib/vehicle"; // Fetch a vehicle by ID
+import EditVehicleForm from "@/components/vehicle/EditForm"; 
+import { getVehicleById } from "@/lib/vehicle"; 
 
 export const metadata = constructMetadata({
   title: "Vehicle Edit – Admin Dashboard",
   description: "Edit vehicle details for the management system.",
 });
 
-// Server-side rendering using async function
 export default async function VehicleEditPage({
   params,
 }: {
   params: { id: string };
 }) {
-  // Authenticate the user
   const user = await getCurrentUser();
   if (!user || user.role !== "ADMIN") {
     redirect("/login");
-    return null; // Ensure nothing further is rendered after redirect
+    return null; 
   }
 
-  // Extract vehicle ID from params
   const { id } = params;
   let vehicle = null;
 
   try {
-    // Fetch the vehicle details
     vehicle = await getVehicleById(id);
 
     if (!vehicle) {
