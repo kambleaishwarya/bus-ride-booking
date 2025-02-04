@@ -1,5 +1,4 @@
 import { UserRole } from "@prisma/client";
-
 import { SidebarNavItem } from "types";
 
 export const sidebarLinks: SidebarNavItem[] = [
@@ -36,13 +35,12 @@ export const sidebarLinks: SidebarNavItem[] = [
         authorizeOnly: UserRole.ADMIN,
         disabled: false,
       },
-
+      {
         href: "/dashboard/manager",
         icon: "package",
         title: "Manager",
         authorizeOnly: UserRole.ADMIN,
       },
-    
     ],
   },
   {
