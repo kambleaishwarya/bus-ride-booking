@@ -31,6 +31,7 @@ import {
   User,
   X,
   Bus,
+  Route,
   MapPin,
 } from "lucide-react";
 
@@ -49,6 +50,7 @@ export const Icons = {
   dashboard: LayoutPanelLeft,
   ellipsis: MoreVertical,
   bus:Bus,
+ route:Route,
   mapin: MapPin,
   gitHub: ({ ...props }: LucideProps) => (
     <svg

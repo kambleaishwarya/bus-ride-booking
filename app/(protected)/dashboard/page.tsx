@@ -1,16 +1,23 @@
+
 import { getCurrentUser } from "@/lib/session";
 import { constructMetadata } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { DashboardHeader } from "@/components/dashboard/header";
 import { EmptyPlaceholder } from "@/components/shared/empty-placeholder";
 
+
+
 export const metadata = constructMetadata({
   title: "Dashboard – Next Template",
   description: "Create and manage content.",
 });
 
+
+
 export default async function DashboardPage() {
   const user = await getCurrentUser();
+
+
 
   return (
     <>
@@ -18,6 +25,14 @@ export default async function DashboardPage() {
         heading="Dashboard"
         text={`Current Role : ${user?.role} — Change your role in settings.`}
       />
+
+      <div className="text-center my-6">
+        <h2 className="text-2xl font-semibold">Welcome, {user?.name || "User"}!</h2>
+        <p className="text-gray-600">
+          We are glad to have you here.
+        </p>
+      </div>
+
       <EmptyPlaceholder>
         <EmptyPlaceholder.Icon name="post" />
         <EmptyPlaceholder.Title>No content created</EmptyPlaceholder.Title>
