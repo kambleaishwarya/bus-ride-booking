@@ -11,7 +11,7 @@ import {
 } from "@tanstack/react-table";
 import { Button } from "@/components/ui/button";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { faEye, faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faEye, faEdit, faTrash, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { toast } from "sonner";
 
@@ -165,6 +165,7 @@ export function DataTableDemo() {
       {error && <div className="text-red-500">{error}</div>}
       <div className="flex items-center justify-end py-4">
         <Button className="max-w-sm" onClick={() => router.push("/fare/addForm")}>
+        <FontAwesomeIcon icon={faPlus} className="mr-2" />
           Add Fare
         </Button>
       </div>

@@ -181,6 +181,7 @@ export function DataTableDemo() {
           className="max-w-sm"
           onClick={() => router.push("/location/addForm")}
         >
+            <FontAwesomeIcon icon={faPlus} className="mr-2" />
           Add Location
         </Button>
       </div>

@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { faEdit, faEye, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faEdit, faEye, faPlus, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   ColumnDef,
@@ -197,6 +197,7 @@ export default function TransactionsList() {
           onClick={handleAdd}
           className="inline-flex h-9 items-center justify-center rounded-md bg-primary px-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
         >
+            <FontAwesomeIcon icon={faPlus} className="mr-2" />
           Add Route
         </button>
       </div>
