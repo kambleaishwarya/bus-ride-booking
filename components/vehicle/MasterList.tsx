@@ -153,7 +153,7 @@ export default function VehicleList() {
 
   return (
     <div className="w-full">
-      <h2 className="mb-4 text-lg font-semibold">Vehicle List</h2>
+      <h2 className="mb-4 text-3xl font-bold">Vehicle List</h2>
 
       <div className="mb-4 flex justify-end">
         <button

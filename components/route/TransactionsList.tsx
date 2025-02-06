@@ -190,7 +190,7 @@ export default function TransactionsList() {
 
   return (
     <div className="w-full">
-      <h2 className="mb-4 text-lg font-semibold">Route List</h2>
+      <h2 className="mb-4 text-3xl font-bold">Route List</h2>
 
       <div className="mb-4 flex justify-end">
         <button

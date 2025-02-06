@@ -163,7 +163,7 @@ export function DataTableDemo() {
   return (
     <div className="w-full">
       {error && <div className="text-red-500">{error}</div>}
-      <div className="flex items-center justify-between py-4">
+      <div className="flex items-center justify-end py-4">
         <Button className="max-w-sm" onClick={() => router.push("/fare/addForm")}>
           Add Fare
         </Button>

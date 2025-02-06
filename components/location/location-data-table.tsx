@@ -176,7 +176,7 @@ export function DataTableDemo() {
 
   return (
     <div className="w-full">
-      <div className="flex items-center justify-between py-4">
+      <div className="flex items-center justify-end py-4">
         <Button
           className="max-w-sm"
           onClick={() => router.push("/location/addForm")}
